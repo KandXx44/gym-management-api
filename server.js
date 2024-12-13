@@ -29,8 +29,7 @@ app.use('/api/login', loginRoute);
 app.use('/api/user', userRoutes);
 app.use('/api/admin', adminRoutes);
 
-// Start server
-const PORT = 5000;
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+const port = process.env.PORT || 5000;
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });
