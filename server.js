@@ -1,7 +1,6 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const port = process.env.PORT || 5000;
 
 // Import your routes
 const memberRoutes = require('./routes/memberRoutes');
@@ -21,7 +20,7 @@ app.use(cors({
 // Middleware for JSON parsing
 app.use(express.json());
 
-// Register routes
+// Register routes (no session-related middleware)
 app.use('/api/members', memberRoutes); 
 app.use('/api/employees', employeeRoutes);
 app.use('/api/equipments', equipmentRoutes);
@@ -30,8 +29,8 @@ app.use('/api/login', loginRoute);
 app.use('/api/user', userRoutes);
 app.use('/api/admin', adminRoutes);
 
-
 // Start server
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+const PORT = 5000;
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
 });
