@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const session = require('express-session');
 const app = express();
+const port = process.env.PORT || 5000;
 
 // Import your routes
 const memberRoutes = require('./routes/memberRoutes');
@@ -43,7 +44,6 @@ app.use('/api/admin', adminRoutes);
 
 
 // Start server
-const PORT = 5000;
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });
