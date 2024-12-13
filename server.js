@@ -1,6 +1,5 @@
 const express = require('express');
 const cors = require('cors');
-const session = require('express-session');
 const app = express();
 const port = process.env.PORT || 5000;
 
@@ -21,17 +20,6 @@ app.use(cors({
 
 // Middleware for JSON parsing
 app.use(express.json());
-
-app.use(session({
-  secret: 'your-secret-key',
-  resave: false,
-  saveUninitialized: false,
-  cookie: {
-    httpOnly: true,          // Restricts access to cookie from client-side JS
-    secure: false,           // Set to true in production with HTTPS
-    maxAge: 1000 * 60 * 60   // Session timeout (1 hour)
-  }
-}));
 
 // Register routes
 app.use('/api/members', memberRoutes); 
