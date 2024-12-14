@@ -13,7 +13,7 @@ const adminRoutes = require('./routes/adminRoutes');
 
 // Enable CORS for all routes
 app.use(cors({
-  origin: 'https://KandXx44.github.io',  // Frontend URL
+  origin: 'https://kandxx44.github.io',  // Frontend URL
   credentials: true,  // Allow cookies to be sent with requests
 }));
 
